@@ -1,0 +1,45 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/view.css">
+</head>
+<body>
+<div class="slider-wrapper">
+<div class="slider">
+	<img src="images/bg1.jpg" class='active-img'>
+	<img src="images/bg2.jpg">
+	<img src="images/bg3.jpg">
+	<img src="images/bg4.jpg">
+</div>
+</div>
+<div class="prev">Prev
+</div>
+<div class="next">Next</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+var slideLeft=0;
+var imgWidth=$('div.slider img').width();
+console.log(imgWidth);
+var totalImages=$('div.slider img').size();
+console.log(totalImages);
+var sliderWidth=imgWidth*totalImages;
+console.log(sliderWidth);
+$(document).ready(function(){
+		$('div.next').click(function(){
+			console.log('Hey');
+			if(slideLeft<-((sliderWidth)-imgWidth*2))
+			slideLeft=imgWidth;
+			slideLeft=slideLeft-imgWidth;
+			$('div.slider').animate({marginLeft:slideLeft},function(){
+			});
+		});
+		$('div.prev').click(function(){
+			if(slideLeft==0)
+				slideLeft=-sliderWidth;
+			slideLeft=slideLeft+imgWidth;
+			$('div.slider').animate({marginLeft:slideLeft},function(){
+			});
+		});
+});
+</script>
+</body>
+</html>

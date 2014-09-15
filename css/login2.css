@@ -1,0 +1,115 @@
+body{
+	margin:0;
+	background-color:#f2f2f2;
+	line-height:normal!important;
+}
+.header p{
+	font-family:Georgia;
+	font-size:50px;
+	color:#33ccff;
+	text-align:center;
+	font-weight:bold;
+	margin:10px;
+}
+.close{
+	position:absolute;
+	top:30px;
+	right:30px;
+}
+.close span{
+	font-size:40px;
+}
+.wrap{
+	position:relative;
+	width:600px;
+	margin:auto;
+}
+.left-column,.right-column{
+	width:350px;
+	padding:20px;
+	float:left;
+	margin-top:150px;
+	text-align:center;
+}
+.left-column{
+	width:250px;
+	padding-top:20px;
+	text-align:right;
+}
+.right-column{
+	padding:0;
+	border-left:2px solid #e1e1e1;
+}
+.left-column a{
+	display:block;
+	width:200px;
+	padding:13px;
+	margin:10px;
+	background-color:#3b5998;
+	border-radius:25px;
+	position:relative;
+	font-family:'Lucida sans',Georgia;
+	font-size:15px;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+}
+.left-column a:hover{
+	color:#fff;
+	text-decoration:none;
+}
+.left-column a:nth-child(1)::before{
+	content:url('../images/fb-logo.jpg');
+	margin-right:20px;
+	position:absolute;
+	left:40px;
+}
+.left-column a:nth-child(2){
+	background-color: #dd4b39;
+}
+.left-column a:nth-child(2)::before{
+	content:url('../images/google-logo.jpg');
+	margin-right:20px;
+	position:absolute;
+	left:40px;
+}
+.mail,.pword{
+	margin:15px;
+	position:relative;
+}
+.mail span,.pword span{
+	width:50px;
+	color:#fff;
+	font-size:19px;
+	padding:15px;
+	position:absolute;
+	top:0px;
+	left:9px;
+	background-color:#33ccff;
+}
+::-webkit-input-placeholder{
+	text-indent:50px;
+}
+input[type="text"],input[type="password"]{
+	width:300px;
+	font-size:18px;
+	padding:12px;
+	border:2px solid #e1e1e1;
+	text-indent:50px;
+}
+input[type="text"]:focus,input[type="password"]:focus{
+	outline:2px solid #33ccff;
+}
+input[type="submit"]{
+	width:200px;
+	padding:14px;
+	background-color:#33ccff;
+	border-radius:25px;
+	border:none;
+	font-family:'Lucida sans',Georgia;
+	font-size:15px;
+	color:#fff;
+}
+.clear{
+	clear:both;
+}
