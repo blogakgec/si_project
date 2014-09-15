@@ -1,12 +1,13 @@
+
 <!doctype html>
 <html>
 <head>
-<style>
-</style>
+<title>BLogger</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <link rel = "stylesheet" type="text/css" href = "css/blogger-style.css">
 <link rel="stylesheet" type="text/css" href="css/login2.css">
+<link rel="icon" type="image/png" href="images/icon.png">
 <script type = "text/javascript" src = "js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/form_validate_ja.js"></script>
@@ -14,18 +15,31 @@
 var $toPosition=0;
 var currPos;
 $(document).ready(function(){
-	$('div.wrapper').width($(window).width());
-	$('div.wrapper').height($(window).height());
-	$('div.page1 img').width($(window).width());
-	$('div.page1 img').height($(window).height());
-	$('div.page1').width($(window).width());
-	$('div.page1').height($(window).height());
-	$('div.page2').width($(window).width());
-	$('div.page2').height($(window).height());
-	$('div.login').click(function(){
-		$('div.wrapper>div').fadeOut();
+	$('div.log-in').load('http://localhost/blog/si_project/login2%20.php',function(){
+		$('div.login').click(function(e){
+		e.preventDefault();
+		console.log($('div.log-in'));
+		$('div.page1').fadeOut();
+		$('div.page2').fadeOut();
 		$('div.log-in').fadeIn();
 	});
+	$('div.close').click(function(){
+		$('div.page1').fadeIn();
+		$('div.page2').fadeIn();
+		$('div.log-in').fadeOut();
+	});
+	});	
+	width=$(window).width()>960?$(window).width():960;
+	height=$(window).height()>600?$(window).height():600;
+	console.log(width);
+	$('div.wrapper').width(width);
+	$('div.wrapper').height(height);
+	$('div.page1 img').width(width);
+	$('div.page1 img').height(height);
+	$('div.page1').width(width);
+	$('div.page1').height(height);
+	$('div.page2').width(width);
+	$('div.page2').height(height);
 	$('div.icons div').click(function(){
 		var box=$(this);
 		var prev=$('div.active');
@@ -62,14 +76,16 @@ $(document).ready(function(){
 });
 });
 function resize(){
-	$('div.wrapper').width($(window).width());
-	$('div.wrapper').height($(window).height());
-	$('div.page1 img').width($(window).width());
-	$('div.page1 img').height($(window).height());
-	$('div.page1').width($(window).width());
-	$('div.page1').height($(window).height());
-	$('div.page2').width($(window).width());
-	$('div.page2').height($(window).height());
+	width=$(window).width()>960?$(window).width():960;
+	height=$(window).height()>600?$(window).height():600;
+	$('div.wrapper').width(width);
+	$('div.wrapper').height(height);
+	$('div.page1 img').width(width);
+	$('div.page1 img').height(height);
+	$('div.page1').width(width);
+	$('div.page1').height(height);
+	$('div.page2').width(width);
+	$('div.page2').height(height);
 	$('div.slide div').css('margin-left',currPos.offset().left-25);
 	$toPosition = $toElement.position().top+$('div.wrapper').scrollTop();
 		$('div.wrapper').scrollTop($toPosition);
@@ -211,5 +227,11 @@ function animate(){
 </div>
 </div>
 </div>
+</div>
+<div class="log-in" style="display:none;position:relative;">
+</div>
 </body>
 </html>
+<!-- Hosting24 Analytics Code -->
+<script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
+<!-- End Of Analytics Code -->
