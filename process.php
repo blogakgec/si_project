@@ -15,7 +15,7 @@
     die('Error: ' . mysqli_error($con));
         }
     session_start();
-    $_SESSION["username"] ="gaurav";
+    $_SESSION["email"] =$email;
     header ("location:display.php");
     
 
