@@ -16,10 +16,22 @@
         }
     session_start();
     $_SESSION["email"] =$email;
-    header ("location:display.php");
-    
+  /*  $subquery="SELECT user_id FROM accounts WHERE email='{$email}' LIMIT 1 ";
+    $result=mysqli_query($con,$subquery);
+    $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+    echo $row['user_id'];
+   $setup= "INSERT INTO profile(user_id)
+            VALUES('{$row["user_id"]}') ";
+  if(mysqli_query($con,$setup))
+    {
+        header ("location:display.php");
+    }
+    else
+     mysql_error();
 
-    
+    */
+
+    header("location:display.php");
     
 
 

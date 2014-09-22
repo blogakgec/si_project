@@ -25,26 +25,34 @@
     
     
     <?php
- /*       include 'includes/connection.php';
-        $email=$_SESSION['email'];
-        $subquery= "SELECT user_id FROM accounts WHERE email='{$_SESSION['email']}  LIMIT 1";
-        $result= mysqli_query($con,$subquery);
-        $result_fetch= mysqli_fetch_array($result,MYSQLI_ASSOC);
-        echo $result_fetch['user_id'];
 
-        $query= "UPDATE profile SET set='1' WHERE user_id={$result_fetch['user_id']} "; 
-        if (!mysqli_query($con,$query)) {
-  die('Error: ' . mysqli_error($con));
-}
-   */     
+        // setting value of set
+/*            include 'includes/connection.php';
+
+                    $email= $_SESSION['email'];
+                    $subquery="SELECT user_id FROM accounts WHERE email='{$email}' LIMIT 1 ";
+                    $result=mysqli_query($con,$subquery);
+                    $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+                        
+                    echo $row['user_id'];
+
+                    $query= "UPDATE profile SET flag=1 WHERE user_id= {$row['user_id']} ";
+                    if(mysqli_query($con,$query))
+                       {
+                           echo "sucess";
+                       }
+*/
+    
     ?>
+
+
     
 <form enctype="multipart/form-data" method="post" action="process_profile.php">
-<input type="text" placeholder="Name" name="full_name"> 
-<input type="file" class="filestyle" data-buttonName="btn-primary" name="image">
-<input type="text" placeholder="Work" name="work">
-<input type="text" placeholder="Education" name="education">
-<input type="text" id="datepicker" name="date">
+Name: <input type="text" value="" name="full_name"> 
+Image:<input type="file" class="filestyle" data-buttonName="btn-primary" name="image">
+Work: <input type="text" value="" name="work">
+Education:<input type="text" value="" name="education">
+Date: <input type="text" id="datepicker" name="date">
 <input type="submit">
 </form>
 </div>

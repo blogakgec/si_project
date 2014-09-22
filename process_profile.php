@@ -50,8 +50,13 @@ $email=$_SESSION['email'];
 $subquery="SELECT user_id FROM accounts WHERE email='{$email}' LIMIT 1 ";
 $result=mysqli_query($con,$subquery);
 $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-$query = "INSERT INTO profile (user_id,full_name,work,dob,education)
-     VALUES('{$row['user_id']}','{$name}','{$work}','{$date}','{$edu}') ";
+
+//$query= "UPDATE profile 
+        //SET full_name={$name},work={$work},dob={$date},education={$edu} 
+        //WHERE user_id= '{$row['user_id']}' ";
+
+ $query = "INSERT INTO profile (user_id,full_name,work,dob,education)
+  VALUES('{$row['user_id']}','{$name}','{$work}','{$date}','{$edu}') ";
        if(mysqli_query($con,$query))
        {
            echo "profile updation sucessful";

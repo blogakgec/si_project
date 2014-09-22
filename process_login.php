@@ -1,6 +1,7 @@
 <?php
 
-    include 'includes/connection.php';
+
+        include 'includes/connection.php';
     session_start();
     $email=$_POST['email'];
     $password=$_POST['pword'];
@@ -16,14 +17,30 @@
             if($result_next['password'] === $password)
             {
                 echo "login sucessful";
-                $_SESSION['email']=$email;
-                header("location:display.php");
-                
+                    $_SESSION['email']=$email;
+                    $subquery="SELECT user_id FROM accounts WHERE email='{$email}' LIMIT 1 ";
+                    $result=mysqli_query($con,$subquery);
+                    $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+                    
+                    $test="SELECT flag from profile WHERE user_id='{$row['user_id']}' ";
+                    $test_result= mysqli_query($con,$test);
+                    $test_row= mysqli_fetch_array($test_result);
+                    echo $test_row['flag'];
+                    if($test_row['flag'] == 0) 
+                    {
+                        header("location:display.php");
+                        mysql_error();
+                    }
+                    else
+                    {
+                        header("location: display1.php");
+                    }
             }
             else
             {
+                
+                
                 echo "login failed";
             }
         }
-
 ?>
