@@ -1,4 +1,10 @@
-
+<?php
+            session_start();
+            if(isset($_SESSION['email'])) {
+            header("Location:view-blog.php");
+            }
+                     
+         ?>
 <!doctype html>
 <html>
 <head>
@@ -162,7 +168,7 @@ function animate(){
 	</div>
 	</div>
 	<form name = "myform" onsubmit="return(validate());" method="post" action="process.php">
-	<input type="text" name="name" placeholder="Full Name" style="" id="check" onkeyup="aval(this.value)"><span id="isaval"></span>
+	<input type="text" name="name" placeholder="User Name" style="" id="check" onkeyup="aval(this.value)"><span id="isaval"></span>
 	<input type="text" name="email" placeholder="Email" style="background:white;">
 	<input type="password" name="pword" placeholder="Password" style="background:white;">
         <div id="errortext"><br><br></div>

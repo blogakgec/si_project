@@ -28,13 +28,14 @@
                     echo $test_row['flag'];
                     if($test_row['flag'] == 0) 
                     {
-                        header("location:display.php");
+                        header("location:view-blog1.php");
                         mysql_error();
                     }
                     else
                     {
                         header("location: display1.php");
                     }
+                    
             }
             else
             {

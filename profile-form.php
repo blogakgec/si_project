@@ -4,23 +4,37 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <link type="text/css" rel="stylesheet" href="css/profile-form.css">
 </head>
+    
+    <?php
+
+        // checking weather the session is set or not
+            session_start();
+            if(!isset($_SESSION['email'])) {
+            header("Location:login2%20.php");
+            }
+            echo $_SESSION['email'];
+                     
+         ?>
+    
+    
 <body>
 <div class="blog">
-    <p>Welcome ,Rahul Jaiswal</p>
+    <p>Welcome... Please set up your profile</p>
 </div>
 <div class="form-wrapper">
 <div class="top">
 <div class="triangle"></div>
 <p class="ribbon">Profile Details</p>
 </div>
-<form>
+<form enctype="multipart/form-data" method="POST" action="process_profile.php">
 <div id="imagePreview"></div>
 <input type="file" id="uploadFile" name="image" class="img">
-<input type="text"><div class="tag">Work</div>
-<input type="text"><div class="tag">Education</div>
-<input type="text"><div class="tag">City</div>
-<input type="text"><div class="tag">Country</div>
-<input data-provide="datepicker"><div class="tag">Birthday</div>
+<input type="text" name="full_name"><div class="tag" >Full name</div>
+<input type="text" name="work"><div class="tag" >Work</div>
+<input type="text" name="education"><div class="tag" >Education</div>
+<input type="text" name="city"><div class="tag" >City</div>
+<input type="text" name="country"><div class="tag" >Country</div>
+<input data-provide="datepicker" name="date"><div class="tag">Birthday</div>
 <input type="submit">
 </form>
 </div>

@@ -1,0 +1,232 @@
+*{
+	box-sizing:border-box;
+}
+body{
+	margin:0;
+	line-height:normal!important;
+}
+.wrapper{
+	min-width:960px;
+}
+.top{
+	 width:100%;
+	 height:50px;
+	 position:relative;
+	 background-color:#222;
+}
+.down-triangle{
+	content:'';
+	border-width:10px;
+	border-style:solid;
+	border-left-color:transparent;
+	border-top-color:#222;
+	border-right-color:transparent;
+	border-bottom-color:transparent;
+}
+.header{
+	padding:10px;
+	position:relative;
+	background-color:#5fcbf0;
+	box-shadow:0px 2px 2px rgba(0,0,0,.3);
+}
+.image{
+	display:inline-block;
+	width:50px;
+	height:50px;
+	padding:5px;
+	background-color:#fff;
+}
+.image img{
+	width:40px;
+	height:40px;
+	vertical-align:middle;
+}
+.header p{
+	display:inline;
+	font-family:'Lucida Calligraphy','Lucida Fax';
+	color:#fff;
+	font-size:25px;
+}
+.header a{
+	float:right;
+	font-family:Verdana,Consolas;
+	position:relative;
+	right:30px;
+	margin:10px;
+	font-size:18px;
+	color:#fff;
+	line-height:30px;
+	text-decoration:none;
+
+}
+.header a:hover{
+	color:rgba(255,255,255,.9);
+}
+.profile-info{
+	padding:20px;
+	background-color:#ccc;
+}
+.profile-info img{
+	width:150px;
+	height:150px;
+	border:5px solid #fff;
+	vertical-align:top;
+	box-shadow:0px 0px 2px rgba(0,0,0,.8);
+}
+.profile-details{
+	margin-left:20px;
+	display:inline-block;
+	width:500px;
+}
+.profile-details p{
+	font-size:16px;
+	font-family:'Lucida Handwriting',Consolas;
+}
+.profile-info a,.right-column a,.posts a{
+	display:block;
+	width:150px;
+	padding:10px;
+	float:right;
+	background-color:#5fcbf0;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+	font-family:'Lucida Sans'!important;
+}
+.profile-info a:hover,.right-column a:hover{
+	color:rgba(255,255,255,.8);
+}
+.left-column{
+	width:280px;
+	padding:20px;
+	float:left;
+	padding-right:0;
+	border-right:1px solid #999;
+}
+.left-column p,.article p{
+	margin:0;
+	margin-top:80px;
+	font-family:'Lucida Calligraphy','Lucida Fax';
+	font-size:30px;
+	font-weight:bold;
+	color:#5fcbf0;
+	border-bottom:1px solid #e1e1e1;
+}
+.left-column ul{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+.left-column ul li{
+	position:relative;
+}
+.left-column ul li a{
+	display:block;
+	padding:5px 10px;
+	text-decoration:none;
+	font-size:18px;
+	color:#ff6600;
+	font-family:'Lucida Calligraphy','Lucida Fax';
+	border-bottom:1px solid #e1e1e1;
+}
+.right-triangle{
+	content:'';
+	border-width:10px;
+	border-style:solid;
+	border-right-color:transparent;
+	border-left-color:#222;
+	border-top-color:transparent;
+	border-bottom-color:transparent;
+}
+.right-column{
+	float:left;
+}
+.blog-name p{
+	margin-top:70px;
+	padding:5px 10px;
+	font-size:25px;
+	font-family:'Lucida Calligraphy';
+	background-color:#5fcbf0;
+	color:#fff;
+	text-align:center;
+}
+.posts{
+	margin:20px;
+	margin-left:16px;
+	padding:10px;
+	border:1px solid #e1e1e1;
+}
+.article{
+	width:700px;
+	margin:50px auto;
+}
+.article p{
+	margin:5px;
+	font-size:25px;
+	border:none;
+}
+.content{
+	position:relative;
+	padding:10px;
+	top:10px;
+	width:700px;
+	border:1px solid #999;
+}
+.content p{
+	font-size:15px;
+	font-family:Consolas;
+	color:#ff6600;
+	font-weight:normal;
+	margin:5px;
+}
+.content a{
+	margin:5px;
+	padding:2px 10px;
+	width:80px;
+	background-color:#5fcbf0;
+	font-size:25px;
+	color:#fff;
+}
+.post-image{
+	width:150px;
+	height:150px;
+	border:5px solid #fff;
+	vertical-align:top;
+	float:left;
+	margin:10px;
+	box-shadow:0px 0px 2px rgba(0,0,0,.8);
+}
+.post-date{
+	width:100px;
+	padding:5px;
+	position:absolute;
+	left:-100px;
+	background-color:#5fcbf0;
+}
+.post-date p{
+	color:#fff;
+	font-family:'Lucida Fax';
+	text-align:center;
+}
+.post-date p:first-child{
+	font-size:35px;
+}
+.navigation{
+	width:400px;
+	margin:auto;
+}
+.navigation a{
+	width:200px;
+	background-color:#fff;
+	color:#5fcbf0;
+	font-size:18px;
+}
+.navigation a:hover{
+	color:#52A3CC;
+}
+.navigation a:first-child{
+	float:left;
+}
+.clear{
+	clear:both;
+}

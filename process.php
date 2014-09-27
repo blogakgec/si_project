@@ -31,7 +31,7 @@
 
     */
 
-    header("location:display.php");
+    header("location:profile-form.php");
     
 
 

@@ -5,17 +5,45 @@
 <link rel="stylesheet" type="text/css" href="css/create_post.css">
 </head>
 <body>
+    
+    
+<?php
+  // embedding php in create post page
+// we have user_id, post_id via GET, blog_id using session
+            include 'includes/connection.php';
+            session_start();
+            $email= $_SESSION['email'];
+            $blog_id= $_GET['create'];
+            echo $blog_id;
+
+
+            $subquery="SELECT user_id FROM accounts WHERE email='{$email}' LIMIT 1 ";
+        
+            $result=mysqli_query($con,$subquery);
+            $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+            echo $row['user_id'];
+// all accounts data in variable $row
+
+            $query="SELECT * FROM profile WHERE user_id={$row['user_id']} LIMIT 1 ";
+            $result_next=mysqli_query($con,$query);
+            $row_next=mysqli_fetch_array($result_next,MYSQLI_ASSOC);
+// all profile data in variable $row_next
+            $blog="SELECT * FROM blogs WHERE user_id={$row['user_id']} AND blog_id={$blog_id} ";
+            $blog_query= mysqli_query($con,$blog);
+            $blog_result= mysqli_fetch_array($blog_query,MYSQLI_ASSOC);
+//$blog_result stores all the infornation from blog table
+?>
 <div class="wrapper">
 	<div class="header">
-		<p>Blogger</p>
-		<p>Rahul Jaiswal</p>
+        <p>Blogger</p>
+		<p><?php echo $row_next['full_name']; ?></p>
+		
 		<div class="clear"></div>
 	</div>
 	<div class="post">
-			<span><a href="#">Blog name</a></span>
-			<span>Post<input type="text" placeholder="Post title"></span>
+			<span><a href="#"><?php echo $blog_result['blog_name']; ?></a></span>
+			<span>Post<input type="text" placeholder="Post Title"></span>
 			<span><a href="#">Publish</a></span>
-			<span><a href="#">Save</a></span>
 			<span><a href="#">Preview</a></span>
 			<span><a href="#">Close</a></span>
 			<div class="clear"></div>
@@ -73,6 +101,17 @@
       </div>
     </div>
     <div id="editor" class="well col-md-9">
+        <?php
+        // place where data is stored
+        ?>
+        <form method="POST" action="create-post.php">
+            <textarea rows="20" cols="100" name="post_content"></textarea>
+            
+            
+            </form>
+
+        
+        
     </div>
   </div>
 </div>

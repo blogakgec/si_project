@@ -40,33 +40,44 @@ include 'includes/connection.php';
      //Image Processing Ends
 
 */
-
 $work=mysql_real_escape_string($_POST["work"]);
 $edu=mysql_real_escape_string($_POST["education"]);
 $date=mysql_real_escape_string($_POST["date"]);
 $name=mysql_real_escape_string($_POST["full_name"]);
+$city=mysql_real_escape_string($_POST["city"]);
+$country=mysql_real_escape_string($_POST["country"]);
+$imageName= mysql_real_escape_string($_FILES["image"]["name"]);
+    $imageData= mysql_real_escape_string(file_get_contents($_FILES["image"]["tmp_name"]));
+    $imageType= mysql_real_escape_string($_FILES["image"]["type"]);
+    echo $imageType;
 session_start();
-$email=$_SESSION['email'];
-$subquery="SELECT user_id FROM accounts WHERE email='{$email}' LIMIT 1 ";
-$result=mysqli_query($con,$subquery);
-$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-
+                    $email= $_SESSION['email'];
+                    $subquery="SELECT user_id FROM accounts WHERE email='{$email}' LIMIT 1 ";
+                    $result=mysqli_query($con,$subquery);
+                    $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+                        
+                    echo $row['user_id'];
 //$query= "UPDATE profile 
         //SET full_name={$name},work={$work},dob={$date},education={$edu} 
         //WHERE user_id= '{$row['user_id']}' ";
+if(substr($imageType,0,5) == "image")
+    {
 
- $query = "INSERT INTO profile (user_id,full_name,work,dob,education)
-  VALUES('{$row['user_id']}','{$name}','{$work}','{$date}','{$edu}') ";
+            $query = "INSERT INTO profile(user_id,full_name,image,work,dob,education,city,country)
+  VALUES('{$row['user_id']}','{$name}','{$imageData}','{$work}','{$date}','{$edu}','{$city}','{$country}') ";
        if(mysqli_query($con,$query))
        {
            echo "profile updation sucessful";
-           header("location:display1.php");
+           header("location:view-blog1.php");
        }
         else
         {
             echo "error..";
             echo mysql_error();
         }
+}
+echo "only images are allowed";
+
 ?>
 
 
